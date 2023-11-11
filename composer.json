@@ -1,0 +1,19 @@
+{
+    "name": "aatis/kernel",
+    "type": "library",
+    "description": "Kernel of Aatis",
+    "authors": [
+        {
+            "name": "Maxime Batista",
+            "email": "maximebatista.lycee@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Aatis\\": "src/"
+        }
+    },
+    "require": {
+        "aatis/dependency-injection": "^1.0.0"
+    }
+}
