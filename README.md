@@ -8,7 +8,18 @@ composer require aatis/kernel
 
 ## Usage
 
-Create your kernel class and extend the `Aatis Kernel` :
+### Requirements
+
+First, inform the router class :
+
+```yaml
+# In config/services.yaml file :
+
+include_services:
+    - 'Aatis\Routing\Service\Router'
+```
+
+Then, create your kernel class and extend the `Aatis Kernel` :
 
 ```php
 use Aatis\Kernel as BaseKernel;
