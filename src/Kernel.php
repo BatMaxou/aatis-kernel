@@ -10,7 +10,7 @@ class Kernel
 {
     public function handle(): void
     {
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../', ['.env', '.env.local'], false);
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../../../', ['.env', '.env.local'], false);
         $dotenv->load();
 
         $ctx = [
