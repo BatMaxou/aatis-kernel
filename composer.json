@@ -14,6 +14,8 @@
         }
     },
     "require": {
-        "aatis/dependency-injection": "^1.0.0"
+        "vlucas/phpdotenv": "^5.6",
+        "aatis/dependency-injection": "^1.3",
+        "aatis/routing": "^0.0.0"
     }
 }
