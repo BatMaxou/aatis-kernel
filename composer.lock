@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d63ad3d6d78f5ad66146912d5100133",
+    "content-hash": "7cd2cec02c8947ba5c6942f62ad5e990",
     "packages": [
         {
             "name": "aatis/dependency-injection",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BatMaxou/aatis-DI.git",
-                "reference": "63cd28a84e64abe9615347ba2a85b94c7a7f3099"
+                "reference": "0dcbc75b48708301d0b0e89325816ef77f7406cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BatMaxou/aatis-DI/zipball/63cd28a84e64abe9615347ba2a85b94c7a7f3099",
-                "reference": "63cd28a84e64abe9615347ba2a85b94c7a7f3099",
+                "url": "https://api.github.com/repos/BatMaxou/aatis-DI/zipball/0dcbc75b48708301d0b0e89325816ef77f7406cf",
+                "reference": "0dcbc75b48708301d0b0e89325816ef77f7406cf",
                 "shasum": ""
             },
             "require": {
@@ -40,22 +40,22 @@
             "description": "Dependency Injection of Aatis",
             "support": {
                 "issues": "https://github.com/BatMaxou/aatis-DI/issues",
-                "source": "https://github.com/BatMaxou/aatis-DI/tree/1.3.0"
+                "source": "https://github.com/BatMaxou/aatis-DI/tree/1.3.1"
             },
-            "time": "2023-12-01T10:37:07+00:00"
+            "time": "2023-12-01T19:35:18+00:00"
         },
         {
             "name": "aatis/routing",
-            "version": "0.0.0",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BatMaxou/aatis-routing.git",
-                "reference": "d0962d3513019eadc560652404321781e5df1bcf"
+                "reference": "77bd1947b7cac6ca96cec8497b1e96286dc43bb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BatMaxou/aatis-routing/zipball/d0962d3513019eadc560652404321781e5df1bcf",
-                "reference": "d0962d3513019eadc560652404321781e5df1bcf",
+                "url": "https://api.github.com/repos/BatMaxou/aatis-routing/zipball/77bd1947b7cac6ca96cec8497b1e96286dc43bb4",
+                "reference": "77bd1947b7cac6ca96cec8497b1e96286dc43bb4",
                 "shasum": ""
             },
             "require": {
@@ -77,9 +77,9 @@
             "description": "Routing system of Aatis",
             "support": {
                 "issues": "https://github.com/BatMaxou/aatis-routing/issues",
-                "source": "https://github.com/BatMaxou/aatis-routing/tree/0.0.0"
+                "source": "https://github.com/BatMaxou/aatis-routing/tree/0.1.0"
             },
-            "time": "2023-12-01T10:51:09+00:00"
+            "time": "2023-12-02T11:00:30+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -1091,16 +1091,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.46",
+            "version": "1.10.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "90d3d25c5b98b8068916bbf08ce42d5cb6c54e70"
+                "reference": "84dbb33b520ea28b6cf5676a3941f4bae1c1ff39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/90d3d25c5b98b8068916bbf08ce42d5cb6c54e70",
-                "reference": "90d3d25c5b98b8068916bbf08ce42d5cb6c54e70",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/84dbb33b520ea28b6cf5676a3941f4bae1c1ff39",
+                "reference": "84dbb33b520ea28b6cf5676a3941f4bae1c1ff39",
                 "shasum": ""
             },
             "require": {
@@ -1149,7 +1149,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-11-28T14:57:26+00:00"
+            "time": "2023-12-01T15:19:17+00:00"
         },
         {
             "name": "psr/event-dispatcher",
@@ -1320,16 +1320,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v7.0.0",
+            "version": "v7.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "64e06788686633deb8d9a7c75ab31bcf4b233a26"
+                "reference": "cdce5c684b2f920bb1343deecdfba356ffad83d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/64e06788686633deb8d9a7c75ab31bcf4b233a26",
-                "reference": "64e06788686633deb8d9a7c75ab31bcf4b233a26",
+                "url": "https://api.github.com/repos/symfony/console/zipball/cdce5c684b2f920bb1343deecdfba356ffad83d5",
+                "reference": "cdce5c684b2f920bb1343deecdfba356ffad83d5",
                 "shasum": ""
             },
             "require": {
@@ -1393,7 +1393,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v7.0.0"
+                "source": "https://github.com/symfony/console/tree/v7.0.1"
             },
             "funding": [
                 {
@@ -1409,7 +1409,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-11-20T16:43:42+00:00"
+            "time": "2023-12-01T15:10:06+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
