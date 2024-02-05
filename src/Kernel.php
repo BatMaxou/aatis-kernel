@@ -4,7 +4,11 @@ namespace Aatis;
 
 use Dotenv\Dotenv;
 use Aatis\Routing\Service\Router;
+use Aatis\ErrorHandler\Service\ErrorHandler;
 use Aatis\DependencyInjection\Service\ContainerBuilder;
+use Aatis\ErrorHandler\Service\ErrorCodeBag;
+use Aatis\ErrorHandler\Service\ExceptionCodeBag;
+use Aatis\Logger\Service\Logger;
 
 class Kernel
 {
@@ -21,6 +25,17 @@ class Kernel
         );
 
         $container = (new ContainerBuilder($ctx))->build();
+
+        /** @var Logger $logger */
+        $logger = $container->get(Logger::class);
+
+        /** @var ErrorCodeBag $errorCodeBag */
+        $errorCodeBag = $container->get(ErrorCodeBag::class);
+
+        /** @var ExceptionCodeBag */
+        $exceptionCodeBag = $container->get(ExceptionCodeBag::class);
+
+        ErrorHandler::initialize($logger, $errorCodeBag, $exceptionCodeBag);
 
         /** @var Router $router */
         $router = $container->get(Router::class);
