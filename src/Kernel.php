@@ -3,25 +3,29 @@
 namespace Aatis;
 
 use Dotenv\Dotenv;
-use Aatis\Routing\Service\Router;
-use Aatis\ErrorHandler\Service\ErrorHandler;
-use Aatis\DependencyInjection\Service\ContainerBuilder;
-use Aatis\ErrorHandler\Service\ErrorCodeBag;
-use Aatis\ErrorHandler\Service\ExceptionCodeBag;
 use Aatis\Logger\Service\Logger;
+use Aatis\Routing\Service\Router;
+use Aatis\HttpFoundation\Component\Request;
+use Aatis\ErrorHandler\Service\ErrorCodeBag;
+use Aatis\ErrorHandler\Service\ErrorHandler;
+use Aatis\ErrorHandler\Service\ExceptionCodeBag;
+use Aatis\DependencyInjection\Service\ContainerBuilder;
 
 class Kernel
 {
     public function handle(): void
     {
-        $server = $_SERVER;
+        $request = Request::createFromGlobals();
 
-        $dotenv = Dotenv::createImmutable($server['DOCUMENT_ROOT'].'../../', ['.env', '.env.local'], false);
+        /** @var string|null $documentRoot */
+        $documentRoot = $request->server->get('DOCUMENT_ROOT');
+
+        $dotenv = Dotenv::createImmutable(sprintf('%s../../', $documentRoot), ['.env', '.env.local'], false);
         $dotenv->load();
 
         $ctx = array_merge(
-            array_diff_key($_SERVER, $server),
-            $server['DOCUMENT_ROOT'] ? ['APP_DOCUMENT_ROOT' => $server['DOCUMENT_ROOT']] : []
+            array_diff_key($_SERVER, $request->server->all()),
+            ['APP_DOCUMENT_ROOT' => $documentRoot ?? '']
         );
 
         $container = (new ContainerBuilder($ctx))->build();
@@ -40,6 +44,9 @@ class Kernel
         /** @var Router $router */
         $router = $container->get(Router::class);
 
-        $router->redirect();
+        $router->redirect($request)
+            ->prepare($request)
+            ->send()
+        ;
     }
 }
