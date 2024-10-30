@@ -1,5 +1,15 @@
 # Aatis Kernel
 
+## Advertisement
+
+This package is a part of `Aatis` and can't be used without the following packages :
+
+- `aatis/dependency-injection` (https://github.com/BatMaxou/aatis-dependency-injection)
+- `aatis/http-foundation` (https://github.com/BatMaxou/aatis-http-foundation)
+- `aatis/routing` (https://github.com/BatMaxou/aatis-routing)
+- `aatis/logger` (https://github.com/BatMaxou/aatis-logger)
+- `aatis/error-handler` (https://github.com/BatMaxou/aatis-error-handler)
+
 ## Installation
 
 ```bash
@@ -10,33 +20,29 @@ composer require aatis/kernel
 
 ### Requirements
 
-First, inform the router class :
+Initialize `Aatis` packages (**see the README of each package**)
 
-```yaml
-# In config/services.yaml file :
+### Basic usage
 
-include_services:
-    - 'Aatis\Routing\Service\Router'
-```
-
-Then, create your kernel class and extend the `Aatis Kernel` :
+If needed, create a kernel class and extend the `Aatis Kernel` :
 
 ```php
 use Aatis\Kernel as BaseKernel;
 
-class YourKernel extends BaseKernel
+class Kernel extends BaseKernel
 {
-    public function handle(): void
+    public function handle(Request $request): void
     {
-        // Your extra stuff
-        parent::handle();
-        // Your extra stuff
+        // extra process
+        parent::handle($request);
+        // extra process
     }
 }
 ```
 
-Or use it directly into your code :
+Or use it directly :
 
 ```php
-(new Kernel())->handle();
+$request = Request::createFromGlobals();
+(new Kernel())->handle($request);
 ```
