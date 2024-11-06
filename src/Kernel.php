@@ -13,10 +13,8 @@ use Aatis\DependencyInjection\Service\ContainerBuilder;
 
 class Kernel
 {
-    public function handle(): void
+    public function handle(Request $request): void
     {
-        $request = Request::createFromGlobals();
-
         /** @var string|null $documentRoot */
         $documentRoot = $request->server->get('DOCUMENT_ROOT');
 
