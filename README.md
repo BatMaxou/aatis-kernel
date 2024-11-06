@@ -31,10 +31,10 @@ use Aatis\Kernel as BaseKernel;
 
 class Kernel extends BaseKernel
 {
-    public function handle(): void
+    public function handle(Request $request): void
     {
         // extra process
-        parent::handle();
+        parent::handle($request);
         // extra process
     }
 }
@@ -43,5 +43,6 @@ class Kernel extends BaseKernel
 Or use it directly :
 
 ```php
-(new Kernel())->handle();
+$request = Request::createFromGlobals();
+(new Kernel())->handle($request);
 ```
