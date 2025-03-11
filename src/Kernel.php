@@ -2,6 +2,7 @@
 
 namespace Aatis;
 
+use Aatis\DependencyInjection\Exception\ServiceNotFoundException;
 use Dotenv\Dotenv;
 use Aatis\Logger\Service\Logger;
 use Aatis\Routing\Service\Router;
@@ -28,8 +29,14 @@ class Kernel
 
         $container = (new ContainerBuilder($ctx))->build();
 
-        /** @var Logger $logger */
-        $logger = $container->get(Logger::class);
+        try {
+            /** @var Logger $logger */
+            $logger = $container->get(Logger::class);
+        } catch (ServiceNotFoundException) {
+            $logger = null;
+        } catch (\Exception $e) {
+            throw $e;
+        }
 
         /** @var ErrorCodeBag $errorCodeBag */
         $errorCodeBag = $container->get(ErrorCodeBag::class);
@@ -37,7 +44,7 @@ class Kernel
         /** @var ExceptionCodeBag */
         $exceptionCodeBag = $container->get(ExceptionCodeBag::class);
 
-        ErrorHandler::initialize($logger, $errorCodeBag, $exceptionCodeBag);
+        ErrorHandler::initialize($errorCodeBag, $exceptionCodeBag, $logger);
 
         /** @var Router $router */
         $router = $container->get(Router::class);
