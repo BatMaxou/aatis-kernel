@@ -3,14 +3,14 @@
 namespace Aatis;
 
 use Aatis\DependencyInjection\Exception\ServiceNotFoundException;
-use Dotenv\Dotenv;
-use Aatis\Logger\Service\Logger;
-use Aatis\Routing\Service\Router;
-use Aatis\HttpFoundation\Component\Request;
+use Aatis\DependencyInjection\Service\ContainerBuilder;
 use Aatis\ErrorHandler\Service\ErrorCodeBag;
 use Aatis\ErrorHandler\Service\ErrorHandler;
 use Aatis\ErrorHandler\Service\ExceptionCodeBag;
-use Aatis\DependencyInjection\Service\ContainerBuilder;
+use Aatis\HttpFoundation\Component\Request;
+use Aatis\Logger\Service\Logger;
+use Aatis\Routing\Service\Router;
+use Dotenv\Dotenv;
 
 class Kernel
 {
