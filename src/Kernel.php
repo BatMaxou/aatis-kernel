@@ -24,7 +24,7 @@ class Kernel
 
         $ctx = array_merge(
             array_diff_key($_SERVER, $request->server->all()),
-            ['APP_DOCUMENT_ROOT' => $documentRoot ?? '']
+            ['DOCUMENT_ROOT' => $documentRoot ?? '']
         );
 
         $container = (new ContainerBuilder($ctx))->build();
