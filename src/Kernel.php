@@ -3,14 +3,17 @@
 namespace Aatis;
 
 use Aatis\DependencyInjection\Exception\ServiceNotFoundException;
-use Dotenv\Dotenv;
-use Aatis\Logger\Service\Logger;
-use Aatis\Routing\Service\Router;
-use Aatis\HttpFoundation\Component\Request;
+use Aatis\DependencyInjection\Service\ContainerBuilder;
 use Aatis\ErrorHandler\Service\ErrorCodeBag;
 use Aatis\ErrorHandler\Service\ErrorHandler;
 use Aatis\ErrorHandler\Service\ExceptionCodeBag;
-use Aatis\DependencyInjection\Service\ContainerBuilder;
+use Aatis\EventDispatcher\Service\ListenerProvider;
+use Aatis\FileManager\Service\FileManager;
+use Aatis\HttpFoundation\Component\Request;
+use Aatis\Logger\Service\Logger;
+use Aatis\Routing\Service\Router;
+use Aatis\TemplateRenderer\Service\TemplateRenderer;
+use Dotenv\Dotenv;
 
 class Kernel
 {
@@ -24,10 +27,15 @@ class Kernel
 
         $ctx = array_merge(
             array_diff_key($_SERVER, $request->server->all()),
-            ['APP_DOCUMENT_ROOT' => $documentRoot ?? '']
+            ['DOCUMENT_ROOT' => $documentRoot ?? '']
         );
 
-        $container = (new ContainerBuilder($ctx))->build();
+        $container = (new ContainerBuilder($ctx))
+            ->register(TemplateRenderer::class)
+            ->register(ListenerProvider::class)
+            ->register(FileManager::class)
+            ->build()
+        ;
 
         try {
             /** @var Logger $logger */
