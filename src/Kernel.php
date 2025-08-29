@@ -2,6 +2,7 @@
 
 namespace Aatis;
 
+use Aatis\Cache\Service\CacheSystem;
 use Aatis\DependencyInjection\Exception\ServiceNotFoundException;
 use Aatis\DependencyInjection\Service\ContainerBuilder;
 use Aatis\ErrorHandler\Service\ErrorCodeBag;
@@ -34,6 +35,7 @@ class Kernel
             ->register(TemplateRenderer::class)
             ->register(ListenerProvider::class)
             ->register(FileManager::class)
+            ->register(CacheSystem::class)
             ->build()
         ;
 
